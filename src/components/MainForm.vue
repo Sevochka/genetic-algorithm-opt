@@ -52,10 +52,12 @@
             <CommonInput
               v-model="store.formData.A"
               title="A"
+              :step="0.1"
             />
             <CommonInput
               v-model="store.formData.B"
               title="B"
+              :step="0.1"
             />
             <span class="main-form__main-info-text">В D нет необходимости, вы можете
               приближать и отдалять график, как вам угодно</span>
