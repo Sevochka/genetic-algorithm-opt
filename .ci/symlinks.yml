@@ -1,0 +1,5 @@
+- name: ANSISTRANO | Symlink code
+  file:
+    state: link
+    src: "{{ ansistrano_deploy_to }}/{{ ansistrano_current_dir }}"
+    dest: "{{ dest_folder }}/{{ lookup('env','CI_PROJECT_NAME') }}"

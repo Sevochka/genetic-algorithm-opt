@@ -1,0 +1,13 @@
+# Default setting
+dest_folder: "/data/static/special_code"
+
+ansistrano_keep_releases: 2
+ansistrano_allow_anonymous_stats: no
+ansistrano_release_version: "{{ lookup('env','CI_COMMIT_SHORT_SHA') }}"
+ansistrano_deploy_to: "{{ dest_folder }}/src/{{ lookup('env','CI_PROJECT_NAME') }}"
+ansistrano_before_cleanup_tasks_file: "/${CI_PROJECT_DIR}/.ci/symlinks.yml"
+
+ansistrano_deploy_via: rsync
+
+# Rsync mode variables
+ansistrano_deploy_from: "/${CI_PROJECT_DIR}/dist/"

@@ -1,0 +1,34 @@
+{
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/recommended",
+      "airbnb-base"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2021,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "vue"
+    ],
+    "rules": {
+      "vue/no-multiple-template-root": "off",
+      "no-param-reassign": ["error", {
+        "props": true,
+        "ignorePropertyModificationsFor": [
+          "state"
+        ]
+      }]
+    },
+    "settings": {
+      "import/resolver": {
+        "alias": {
+          "map": [
+            ["@", "./src"]
+          ]
+        }
+      }
+    }
+}
