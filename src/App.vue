@@ -13,5 +13,9 @@ import MainGraph from '@/components/MainGraph.vue';
 <style lang="scss" scoped>
 .app {
   padding: 2rem;
+
+  @include layout-mobile {
+    padding: 0.5rem;
+  }
 }
 </style>

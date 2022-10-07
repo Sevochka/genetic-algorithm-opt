@@ -162,6 +162,11 @@ const handleCalculate = () => {
   flex-direction: column;
   align-items: center;
 
+  @include layout-mobile {
+    flex-direction: column;
+    width: 100%;
+  }
+
   &__range-absolute {
     position: absolute;
     top: 1.5rem;
@@ -174,6 +179,10 @@ const handleCalculate = () => {
     position: absolute;
     top: 1rem;
     right: 1rem;
+
+    @include layout-mobile {
+      display: none;
+    }
   }
 
   &__title {
@@ -188,6 +197,10 @@ const handleCalculate = () => {
     justify-content: center;
     gap: 1rem;
     margin-bottom: 1rem;
+
+    @include layout-mobile {
+      flex-direction: column;
+    }
   }
 
   &__first {
@@ -242,7 +255,7 @@ const handleCalculate = () => {
 .fadeHeight-enter-active,
 .fadeHeight-leave-active {
   transition: max-height 0.5s, opacity 0.5s;
-  max-height: mvw(100);
+  max-height: 100vh;
 }
 .fadeHeight-enter-from,
 .fadeHeight-enter,

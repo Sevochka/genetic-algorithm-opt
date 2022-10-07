@@ -3,7 +3,6 @@ import geneticAlgorithm from '@/utils/geneticAlgorithm';
 import mathFunc from '@/data/math-func';
 
 const getDefaultState = () => ({
-  // 0, 2 * Math.PI, 100, 1000, 0.1, 10, 10
   formData: {
     A: 0,
     B: 6.2,
@@ -29,7 +28,6 @@ const getDefaultState = () => ({
 const useMainStore = defineStore('main', {
   state: getDefaultState,
   getters: {
-    isMobile: (state) => state.windowWidth < 729,
     isPopulationsExist: (state) => state.populations.length > 0,
     populationLength: (state) => state.populations.length - 1,
     currentPopulation: (state) => state.populations[state.rangePopulation],
