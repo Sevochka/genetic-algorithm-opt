@@ -5,9 +5,7 @@ import { resolve } from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: process.env.TARGET_ENV === 'staging'
-    ? '/demo/genetic-algorithm/'
-    : '/genetic-algorithm/',
+  base: '/',
   plugins: [
     vue(),
   ],
