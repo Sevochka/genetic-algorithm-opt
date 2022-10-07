@@ -1,8 +1,0 @@
----
-- name: Ansistrano role for deploy & rollback code
-  hosts:
-    - all
-
-  roles:
-
-    - role: ansistrano
