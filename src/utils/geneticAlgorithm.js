@@ -56,6 +56,7 @@ const geneticAlgorithm = (F, A, B, N, M, P, Q, R, optimum) => {
       };
       nextPopulation.push(child);
     }
+
     allPopulations.push(nextPopulation);
     population = nextPopulation;
   }
