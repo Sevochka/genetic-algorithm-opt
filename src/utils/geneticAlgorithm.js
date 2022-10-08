@@ -1,3 +1,10 @@
+const getSortMethodByOptimum = (optimum) => {
+  if (optimum === 'min') {
+    return (a, b) => a.y - b.y;
+  }
+  return (a, b) => b.y - a.y;
+};
+
 // Функция поиска оптимума (максимума/минимума) функции F(X) на интервале [A,B]
 // с использованием генетического алгоритма.
 // Параметры:
@@ -9,14 +16,7 @@
 // P - вероятность мутации
 // Q - количество особей, которые переходят в следующее поколение
 // R - количество особей, которые могут мутировать
-// Возвращает: точку минимума функции F(X) на интервале [A,B]
-
-const getSortMethodByOptimum = (optimum) => {
-  if (optimum === 'min') {
-    return (a, b) => a.y - b.y;
-  }
-  return (a, b) => b.y - a.y;
-};
+// optimum - тип оптимума (min - минимум, max - максимум)
 
 const geneticAlgorithm = (F, A, B, N, M, P, Q, R, optimum) => {
   // Инициализация популяции
@@ -33,7 +33,7 @@ const geneticAlgorithm = (F, A, B, N, M, P, Q, R, optimum) => {
   allPopulations.push(population);
   // Основной цикл
   for (let i = 0; i < M; i++) {
-    // Сортировка популяции по возрастанию значения функции
+    // Сортировка популяции по возрастанию или убыванию значения функции
     population.sort(sortMethod);
     // Выборка Q особей, которые переходят в следующее поколение
     const nextPopulation = population.slice(0, Q);
@@ -60,9 +60,7 @@ const geneticAlgorithm = (F, A, B, N, M, P, Q, R, optimum) => {
     allPopulations.push(nextPopulation);
     population = nextPopulation;
   }
-  // Сортировка популяции по возрастанию значения функции
-  population.sort(sortMethod);
-  // Возвращаем точку минимума функции
+
   return allPopulations;
 };
 
