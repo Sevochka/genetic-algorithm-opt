@@ -17,6 +17,7 @@
 import { onMounted, ref, watch } from 'vue';
 import useMainStore from '@/store/main';
 import { storeToRefs } from 'pinia';
+import { getSortMethodByOptimum } from '@/utils/geneticAlgorithm.js';
 
 const graph = ref(null);
 const isReset = ref(false);
@@ -71,7 +72,8 @@ const getPointsInfo = (points, color) => ({
 
 watch(() => currentPopulation.value, () => {
   if (store.isPopulationsExist) {
-    const sortedCurrent = [...currentPopulation.value].sort((a, b) => b.y - a.y);
+    const sortMethod = getSortMethodByOptimum(formData.value.optimum);
+    const sortedCurrent = [...currentPopulation.value].sort(sortMethod);
     const redPoints = sortedCurrent.slice(0, currentPopulation.value.length
         - formData.value.nextGenerationSize);
     const bluePoints = sortedCurrent.slice(

@@ -65,3 +65,4 @@ const geneticAlgorithm = (F, A, B, N, M, P, Q, R, optimum) => {
 };
 
 export default geneticAlgorithm;
+export { getSortMethodByOptimum };
